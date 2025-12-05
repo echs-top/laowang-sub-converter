@@ -46,47 +46,11 @@
 
           <div class="deploy-card glass-card">
             <div class="deploy-header">
-              <span class="deploy-icon">☁️</span>
-              <h3>Cloudflare Pages</h3>
-            </div>
-            <p>免费静态托管，全球 CDN</p>
-            <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/tony-wang1990/laowang-sub-converter" target="_blank" class="btn btn-secondary">🚀 一键部署</a>
-          </div>
-
-          <div class="deploy-card glass-card">
-            <div class="deploy-header">
               <span class="deploy-icon">▲</span>
               <h3>Vercel</h3>
             </div>
-            <p>GitHub 导入即部署</p>
+            <p>免费部署，全球 CDN</p>
             <a href="https://vercel.com/new/clone?repository-url=https://github.com/tony-wang1990/laowang-sub-converter" target="_blank" class="btn btn-secondary">🚀 一键部署</a>
-          </div>
-
-          <div class="deploy-card glass-card">
-            <div class="deploy-header">
-              <span class="deploy-icon">🦓</span>
-              <h3>Zeabur</h3>
-            </div>
-            <p>国内友好，一键部署容器</p>
-            <a href="https://zeabur.com/templates/laowang-sub-converter?referralCode=tony-wang1990" target="_blank" class="btn btn-secondary">🚀 一键部署</a>
-          </div>
-
-          <div class="deploy-card glass-card">
-            <div class="deploy-header">
-              <span class="deploy-icon">🚂</span>
-              <h3>Railway</h3>
-            </div>
-            <p>免费额度，自动部署</p>
-            <a href="https://railway.app/template/laowang-sub-converter?referralCode=tony-wang1990" target="_blank" class="btn btn-secondary">🚀 一键部署</a>
-          </div>
-
-          <div class="deploy-card glass-card">
-            <div class="deploy-header">
-              <span class="deploy-icon">🎨</span>
-              <h3>Render</h3>
-            </div>
-            <p>免费托管，自动 SSL</p>
-            <a href="https://render.com/deploy?repo=https://github.com/tony-wang1990/laowang-sub-converter" target="_blank" class="btn btn-secondary">🚀 一键部署</a>
           </div>
 
           <div class="deploy-card glass-card">
@@ -100,20 +64,11 @@
 
           <div class="deploy-card glass-card">
             <div class="deploy-header">
-              <span class="deploy-icon">🪁</span>
-              <h3>Koyeb</h3>
+              <span class="deploy-icon">☁️</span>
+              <h3>Cloudflare Pages</h3>
             </div>
-            <p>全球边缘部署</p>
-            <a href="https://app.koyeb.com/deploy?type=git&repository=github.com/tony-wang1990/laowang-sub-converter" target="_blank" class="btn btn-secondary">🚀 一键部署</a>
-          </div>
-
-          <div class="deploy-card glass-card">
-            <div class="deploy-header">
-              <span class="deploy-icon">🪰</span>
-              <h3>Fly.io</h3>
-            </div>
-            <p>全球边缘容器</p>
-            <pre class="code-block"><code>fly launch</code></pre>
+            <p>全球边缘网络</p>
+            <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/tony-wang1990/laowang-sub-converter" target="_blank" class="btn btn-secondary">🚀 一键部署</a>
           </div>
 
           <div class="deploy-card glass-card">

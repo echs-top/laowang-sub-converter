@@ -28,7 +28,9 @@
 
 ---
 
-## 📸 界面预览
+## 🌐 在线演示
+
+👉 **演示地址**：[https://laowang-sub-conv.vercel.app](https://laowang-sub-conv.vercel.app)
 
 <table>
   <tr>
@@ -69,7 +71,7 @@ docker-compose up -d
 ### Docker
 
 ```bash
-docker run -d -p 80:80 ghcr.io/laowang-sub-converter/laowang-sub-converter:latest
+docker run -d -p 80:80 ghcr.io/tony-wang1990/laowang-sub-converter:main
 ```
 
 ### 本地开发
@@ -83,9 +85,6 @@ npm run dev
 
 # 构建生产版本
 npm run build
-
-# 启动后端服务
-npm run server
 ```
 
 ---
@@ -94,23 +93,9 @@ npm run server
 
 | 平台 | 部署按钮 |
 |------|----------|
-| **Cloudflare Pages** | [![Deploy](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tony-wang1990/laowang-sub-converter) |
 | **Vercel** | [![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tony-wang1990/laowang-sub-converter) |
 | **Netlify** | [![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tony-wang1990/laowang-sub-converter) |
-| **Zeabur** | [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/laowang-sub-converter) |
-| **Railway** | [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/laowang-sub-converter) |
-| **Render** | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/tony-wang1990/laowang-sub-converter) |
-| **Koyeb** | [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/tony-wang1990/laowang-sub-converter) |
-
-### 命令行部署
-
-```bash
-# Fly.io
-fly launch --image ghcr.io/tony-wang1990/laowang-sub-converter:latest
-
-# Docker
-docker run -d -p 80:80 ghcr.io/tony-wang1990/laowang-sub-converter:latest
-```
+| **Cloudflare Pages** | [![Deploy](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tony-wang1990/laowang-sub-converter) |
 
 ---
 
