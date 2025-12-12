@@ -36,6 +36,7 @@
 
 <script setup>
 import { ref, watch, onMounted } from 'vue'
+import QRCode from 'qrcode'
 
 const props = defineProps({
   result: {
@@ -77,7 +78,7 @@ const downloadConfig = () => {
   URL.revokeObjectURL(url)
 }
 
-// 简单的二维码生成（实际项目中可以使用 qrcode 库）
+// 使用 qrcode 库生成二维码
 watch(() => props.result, (val) => {
   if (showQR.value && qrCanvas.value && val) {
     generateQR(val)
@@ -91,22 +92,20 @@ watch(showQR, (val) => {
 })
 
 const generateQR = async (text) => {
-  // 这里可以集成 qrcode 库
-  // 简化版本仅显示占位符
   if (!qrCanvas.value) return
   
-  const ctx = qrCanvas.value.getContext('2d')
-  qrCanvas.value.width = 200
-  qrCanvas.value.height = 200
-  
-  ctx.fillStyle = '#ffffff'
-  ctx.fillRect(0, 0, 200, 200)
-  
-  ctx.fillStyle = '#000000'
-  ctx.font = '14px sans-serif'
-  ctx.textAlign = 'center'
-  ctx.fillText('QR Code', 100, 100)
-  ctx.fillText('(需安装qrcode库)', 100, 120)
+  try {
+    await QRCode.toCanvas(qrCanvas.value, text, {
+      width: 200,
+      margin: 2,
+      color: {
+        dark: '#000000',
+        light: '#ffffff'
+      }
+    })
+  } catch (err) {
+    console.error('QR Code generation failed:', err)
+  }
 }
 </script>
 
