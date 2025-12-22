@@ -1,3 +1,4 @@
+import yaml from 'js-yaml'
 
 // 转换核心逻辑
 export function convertToTarget(nodes, target, options) {
@@ -139,7 +140,7 @@ function convertToClash(nodes, options) {
 # 节点数量: ${nodes.length}
 # 生成时间: ${new Date().toISOString()}
 
-${yamlStringify(config)}`
+${yaml.dump(config, { lineWidth: -1 })}`
 }
 
 // Surge 格式

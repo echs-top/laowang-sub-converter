@@ -1,4 +1,4 @@
-import express from 'express'
+﻿import express from 'express'
 import { parseSubscription, addEmoji } from '../utils/parsers.js'
 import { convertToTarget } from '../utils/converters.js'
 

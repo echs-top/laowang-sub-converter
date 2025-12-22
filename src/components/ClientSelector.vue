@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="client-selector">
     <label class="form-label">{{ $t('converter.targetClient') }}</label>
     

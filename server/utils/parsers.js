@@ -32,6 +32,18 @@ export function parseSubscription(content) {
         } else if (trimmed.startsWith('trojan://')) {
             const node = parseTrojan(trimmed)
             if (node) nodes.push(node)
+        } else if (trimmed.startsWith('hysteria://')) {
+            const node = parseHysteria(trimmed)
+            if (node) nodes.push(node)
+        } else if (trimmed.startsWith('hysteria2://') || trimmed.startsWith('hy2://')) {
+            const node = parseHysteria2(trimmed)
+            if (node) nodes.push(node)
+        } else if (trimmed.startsWith('tuic://')) {
+            const node = parseTuic(trimmed)
+            if (node) nodes.push(node)
+        } else if (trimmed.startsWith('ssr://')) {
+            const node = parseSSR(trimmed)
+            if (node) nodes.push(node)
         }
     }
 
@@ -181,6 +193,93 @@ function parseTrojan(uri) {
 }
 
 // 添加 Emoji
+
+// Hysteria ??
+function parseHysteria(uri) {
+    try {
+        const url = new URL(uri);
+        const params = url.searchParams;
+        return {
+            type: 'hysteria',
+            name: decodeURIComponent(url.hash.slice(1)) || 'Hysteria Node',
+            server: url.hostname,
+            port: parseInt(url.port),
+            auth: params.get('auth') || url.username || '',
+            up: params.get('upmbps') || params.get('up') || '100',
+            down: params.get('downmbps') || params.get('down') || '100',
+            alpn: params.get('alpn') || 'h3',
+            obfs: params.get('obfs') || '',
+            insecure: params.get('insecure') === '1',
+            sni: params.get('peer') || params.get('sni') || url.hostname
+        };
+    } catch (e) { return null; }
+}
+
+// Hysteria2 ??
+function parseHysteria2(uri) {
+    try {
+        const normalizedUri = uri.replace('hy2://', 'hysteria2://');
+        const url = new URL(normalizedUri);
+        const params = url.searchParams;
+        return {
+            type: 'hysteria2',
+            name: decodeURIComponent(url.hash.slice(1)) || 'Hysteria2 Node',
+            server: url.hostname,
+            port: parseInt(url.port) || 443,
+            password: url.username || params.get('auth') || '',
+            obfs: params.get('obfs') || '',
+            obfsPassword: params.get('obfs-password') || '',
+            sni: params.get('sni') || url.hostname,
+            insecure: params.get('insecure') === '1'
+        };
+    } catch (e) { return null; }
+}
+
+// TUIC ??
+function parseTuic(uri) {
+    try {
+        const url = new URL(uri);
+        const params = url.searchParams;
+        const userParts = url.username.split(':');
+        const uuid = userParts[0] || url.username;
+        const password = userParts[1] || url.password || '';
+        return {
+            type: 'tuic',
+            name: decodeURIComponent(url.hash.slice(1)) || 'TUIC Node',
+            server: url.hostname,
+            port: parseInt(url.port) || 443,
+            uuid, password,
+            congestion: params.get('congestion_control') || 'bbr',
+            alpn: params.get('alpn') ? params.get('alpn').split(',') : ['h3'],
+            sni: params.get('sni') || url.hostname,
+            insecure: params.get('allow_insecure') === '1',
+            udpRelayMode: params.get('udp_relay_mode') || 'native'
+        };
+    } catch (e) { return null; }
+}
+
+// SSR ??
+function parseSSR(uri) {
+    try {
+        const base64Part = uri.slice(6);
+        const decoded = Buffer.from(base64Part.replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString();
+        const mainPart = decoded.split('/?')[0];
+        const paramsPart = decoded.split('/?')[1] || '';
+        const parts = mainPart.split(':');
+        if (parts.length < 6) return null;
+        const password = Buffer.from(parts[5].replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString();
+        const params = new URLSearchParams(paramsPart);
+        const remarksBase64 = params.get('remarks') || '';
+        const name = remarksBase64 ? Buffer.from(remarksBase64.replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString() : 'SSR Node';
+        return {
+            type: 'ssr', name, server: parts[0], port: parseInt(parts[1]),
+            protocol: parts[2], method: parts[3], obfs: parts[4], password,
+            protocolParam: '',
+            obfsParam: ''
+        };
+    } catch (e) { return null; }
+}
+
 export function addEmoji(name) {
     const emojiMap = {
         '香港': '🇭🇰', 'HK': '🇭🇰',
