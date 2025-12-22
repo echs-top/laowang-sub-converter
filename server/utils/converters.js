@@ -19,6 +19,7 @@ export function convertToTarget(nodes, target, options) {
         case 'loon':
             return convertToLoon(nodes, options)
         case 'singbox':
+        case 'nekobox':
             return convertToSingBox(nodes, options)
         default:
             return ''
