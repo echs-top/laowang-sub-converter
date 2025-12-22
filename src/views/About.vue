@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="about-page">
     <div class="container">
       <div class="page-header">
@@ -133,8 +133,18 @@
               <p>免费静态托管，全球 CDN</p>
               <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/tony-wang1990/laowang-sub-converter" target="_blank" class="btn btn-secondary"> 一键部署</a>
             </div>
+            
+            <div class="deploy-card glass-card">
+              <div class="deploy-header">
+                <span class="deploy-icon"></span>
+                <h3>VPS 直接运行</h3>
+              </div>
+              <p>传统部署方式</p>
+              <pre class="code-block"><code>npm install && npm start</code></pre>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
       <!-- API Docs -->
       <section class="about-section">
