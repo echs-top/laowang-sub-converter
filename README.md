@@ -3,17 +3,41 @@
 <div align="center">
 
 ![Logo](https://img.shields.io/badge/LaoWang-Sub--converter-blue?style=for-the-badge)
-![License](https://img.shields.io/github/license/laowang-subscription/laowang-sub-converter?style=for-the-badge)
+![License](https://img.shields.io/github/license/tony-wang1990/laowang-sub-converter?style=for-the-badge)
+![Node](https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge)
 
-**强大的订阅转换工具 - 支持多种协议和客户端**
+** 强大的订阅转换工具 - 支持多种协议和客户端**
 
-[在线体验](https://laowang-sub-conv.vercel.app) | [文档](./docs) | [问题反馈](https://github.com/laowang-subscription/laowang-sub-converter/issues)
+<p>
+  <a href="https://laowang-sub-conv.vercel.app">
+    <img src="https://img.shields.io/badge/_点击体验_Demo-ready-38b2ac?style=for-the-badge" alt="Demo">
+  </a>
+</p>
+
+[English](./README_EN.md) | 简体中文
 
 </div>
 
 ---
 
-## 功能特性
+##  界面预览
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="./docs/screenshots/home.png" width="400" alt="首页"><br>
+      <b>首页</b>
+    </td>
+    <td align="center">
+      <img src="./docs/screenshots/converter.png" width="400" alt="转换器"><br>
+      <b>转换器</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+##  功能特性
 
 -  **多协议支持** - SS、SSR、VMess、VLESS（含 Reality）、Trojan、Hysteria、Hysteria2、TUIC
 -  **多客户端支持** - Clash、Surge、Quantumult X、Shadowrocket、Loon、V2RayN、V2RayNG、NekoBox、sing-box 等
@@ -25,13 +49,17 @@
 
 ---
 
-## 快速开始
+##  一键部署
 
-### 在线使用
+| 平台 | 部署按钮 |
+|------|----------|
+| **Vercel** | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tony-wang1990/laowang-sub-converter) |
+| **Netlify** | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tony-wang1990/laowang-sub-converter) |
+| **Railway** | [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/laowang-sub-converter) |
 
-直接访问 [https://laowang-sub-conv.vercel.app](https://laowang-sub-conv.vercel.app)
+---
 
-### 本地部署
+##  本地部署
 
 ```bash
 # 克隆项目
@@ -56,7 +84,7 @@ docker run -d -p 3000:3000 --name sub-converter ghcr.io/tony-wang1990/laowang-su
 
 ---
 
-## API 使用
+##  API 使用
 
 ### 基本转换
 
@@ -68,14 +96,14 @@ GET /api/convert?target=clash&url=YOUR_SUBSCRIPTION_URL
 
 | 参数 | 说明 | 示例 |
 |------|------|------|
-| target | 目标客户端 | clash, surge, v2rayn |
+| target | 目标客户端 | clash, surge, v2rayn, nekobox |
 | url | 订阅链接 | https://example.com/sub |
 | emoji | 添加 Emoji | 1 |
 | udp | 启用 UDP | 1 |
 
 ---
 
-## 支持的协议
+##  支持的协议
 
 | 协议 | 状态 |
 |------|------|
@@ -89,7 +117,7 @@ GET /api/convert?target=clash&url=YOUR_SUBSCRIPTION_URL
 | Hysteria2 |  |
 | TUIC |  |
 
-## 支持的客户端
+##  支持的客户端
 
 | 客户端 | 平台 | 状态 |
 |--------|------|------|
@@ -108,7 +136,7 @@ GET /api/convert?target=clash&url=YOUR_SUBSCRIPTION_URL
 
 ---
 
-## 备用 API
+##  备用 API
 
 当主服务不可用时，系统会自动切换到备用 API：
 
@@ -119,7 +147,7 @@ GET /api/convert?target=clash&url=YOUR_SUBSCRIPTION_URL
 
 ---
 
-## 技术栈
+##  技术栈
 
 - **前端**: Vue 3 + Vite
 - **后端**: Node.js + Express
@@ -128,12 +156,12 @@ GET /api/convert?target=clash&url=YOUR_SUBSCRIPTION_URL
 
 ---
 
-## 开源协议
+##  开源协议
 
 MIT License
 
 ---
 
-## 致谢
+##  致谢
 
 感谢所有贡献者和用户的支持！
